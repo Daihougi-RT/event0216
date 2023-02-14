@@ -14,7 +14,7 @@
         <div class="contact">           
             <h1 class="contact-ttl" id="edit_area2">イベント申込フォーム</h1>
             <img src="top.jpg" alt="写真" width="100%" height="100%">   
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLScW5f9BdCumnX97K2k1FuA5Y5_FYyKUjbPasgSmq0A7sUuK5A/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeUNp29SY-H2vdaT_CD5L-FUJJf8ChnS1wcJovDzrk0WYxN7Q/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
 
                 <table class="contact-table">
                     <tr>
@@ -45,13 +45,16 @@
                     <tr>
                         <th class="contact-item">イベント名</th>
                         <td class="contact-body">
-                            <label class="contact-skill">
-                                <input type="radio" id="event1" name="entry.2100736645" required="required" value="2023年2月16日（木）「手話講座」人権委員会" checked="checked"/>
+                            <label class="contact-keitai">
+                                <input type="radio" id="event1" name="entry.2100736645" required="required" value="2023年1月30日（月）明日から役立つセミナー「MRI」"/>
                                 <span class="contact-skill-txt" id="edit_area10">2023年2月16日（木）「手話講座」人権委員会</span>
+                                <span class="contact-skill-txt" id="edit_area1"></span>
+
                             </label>
                             <label class="contact-skill">
-                                <input type="radio" id="event2" name="entry.2100736645" value="2023年3月4日（土）組織部学術セミナー（担当：北ブロック）申し込み不要" disabled/>
-                                <span class="contact-skill-txt" id="edit_area20">2023年3月4日（土）組織部学術セミナー（担当：北ブロック）申し込み不要</span>
+                                <input type="radio" id="event2" name="entry.2100736645" value="2023年3月4日（土）組織部学術セミナー（担当：北ブロック）" disabled/>
+                                <span class="contact-skill-txt" id="edit_area20">2023年3月4日（土）組織部学術セミナー（担当：北ブロック）</span>
+                                <span class="contact-skill-txt" id="edit_area2"></span>
                             </label>                                                                               
                         </td>
                     </tr>
@@ -59,9 +62,13 @@
                     <tr>
                         <th class="contact-item">参加形態</th>
                         <td class="contact-body">
+                            <label class="contact-keitai">
+                                <input type="radio" id="web" name="entry.1424661284" value="Web参加" checked="checked"/>
+                                <span class="contact-skill-txt" id="edit_area3">Web参加　会員優先 先着80名（当日まで受付）</span>
+                            </label>
                             <label class="contact-skill">
-                                <input type="radio" id="kaijyo" name="entry.1424661284" value="会場参加" checked="checked"/>
-                                <span class="contact-skill-txt" id="edit_area4">会場参加のみ　会員優先 先着順12名（2月13日まで受付）</span>
+                                <input type="radio" id="kaijyo" name="entry.1424661284" value="会場参加"/>
+                                <span class="contact-skill-txt" id="edit_area4">会場参加　会員限定 先着12名（3日前まで受付）</span>
                             </label>                                                           
                         </td>
                     </tr>
@@ -79,12 +86,14 @@
                             </label>
                             <label class="contact-skill">
                                 <input type="radio" name="entry.153040154" value="非会員" onclick="connecttext2('textforscb3',this.checked);"/>
-                                <span class="contact-skill-txt">非会員（非会員の方も無料です）</span><br>
+                                <span class="contact-skill-txt">非会員（先に参加費をお支払いください）</span><br>
+                                <span class="contact-skill-txt" style="color:red">　↓　↓　↓　↓　参加費がまだの方はこちらから</span><br>
+                                <span class="contact-skill-txt"><a href="https://buy.stripe.com/00gdTZaJl3pzboQ9AF" class="btn" target="_blank">参加費支払い</a></span>
                             </label>
                             <label class="contact-skill">
                                 <input type="radio" name="entry.153040154" value="一般府民" onclick="connecttext4('textforscb3',this.checked);"/>
                                 <span class="contact-skill-txt">一般府民の方は事務所までお問い合わせください</span><br>
-                                <span class="contact-skill-txt"><font size="2">TEL：06-6765-0301（平日13時～16時）メール：osaka@daihougi.ne.jp</font></span>
+                                <span class="contact-skill-txt"><font size="2">TEL：06-6765-0301（平日12時～16時）メール：osaka@daihougi.ne.jp</font></span>
                             </label>
                         </td>
                     </tr>
@@ -128,7 +137,7 @@
                     <tr>
                         <th class="contact-item">領収書番号</th>
                         <td class="contact-body">
-                            <input type="number" id ="textforscb3" name="entry.1059499032" class="form-text3" required="required" disabled="disabled"/>  <font size="2">非会員は必須（0を入力してください）</font>
+                            <input type="number" id ="textforscb3" name="entry.1059499032" class="form-text3" required="required" disabled="disabled"/>  <font size="2">非会員は必須（8桁の数字 ハイフンは不要）</font>
                         </td>
                     </tr>
                     <tr>
@@ -237,14 +246,14 @@
               }              
               
               //  開催日・会場参加の締め切り日設定
-              var kaisai_day1 = new Date("2023-01-16T23:59:59");  // event1(MRI) の開催日を指定 '2021-12-16T16:36:59'
-              var kaisai_day2 = new Date("2023-01-04T23:59:59");  // event2(組織)の開催日を指定 '2021-12-16T16:36:59'
+              var kaisai_day1 = new Date("2023-01-30T23:59:59");  // event1(MRI) の開催日を指定 '2021-12-16T16:36:59'
+              var kaisai_day2 = new Date("2023-03-04T23:59:59");  // event2(組織)の開催日を指定 '2021-12-16T16:36:59'
               var today = new Date();                             // 今日の日付を取得 
               var todaytime  = today.getTime();                   // 今日の日付を時間に変換 
               var web1_endtime  = kaisai_day1.getTime();          // 開催日（締切日）を時間に変換
 
               //　ここを変更！！  もしevent1の定員がいっぱいになった時は”-3”を大きな数字に代えて，締め切る！！！
-              var kaijyo1_endtime  = kaisai_day1.getTime();       // 締切日を3日前にして時間に変換
+              var kaijyo1_endtime  = kaisai_day1.setDate(kaisai_day1.getDate() -3); // 締切日を3日前にして時間に変換
               var comment1 = "";
 
               if(web1_endtime < todaytime){// event1開催日にWebも締め切り
@@ -252,15 +261,21 @@
                 comment1= "<font color='red'>注：上記イベントは締め切りました</font>";
                 document.getElementById("edit_area1").innerHTML = comment1;
                 document.getElementById("event1").disabled = true;
-                document.getElementById("edit_area10").style.color = "gray";    
+                document.getElementById("edit_area10").style.color = "gray";
+                document.getElementById("conf").style.backgroundColor = "gray";  //府民用グレイアウトする
+                document.getElementById("conf").value = "申込不可";  //府民用レイアウトする
+                document.getElementById("conf").disabled = true;  //府民用押せなくする    
 
                 }else if(kaijyo1_endtime < todaytime){// 会場参加の締め切り 
                   let event1 = document.getElementById('event1');
                   event1.addEventListener('change', valueChange1);
                   let event2 = document.getElementById('event2');           
                   event2.addEventListener('change', valueChange2);
-                  comment1= "<font color='red'>注：上記イベントは締め切りました</font>";
+                  comment1= "<font color='red'>注：上記イベントの会場参加は締め切りました</font>";
                   document.getElementById("edit_area1").innerHTML = comment1;
+                  document.getElementById("conf").style.backgroundColor = "gray";  //府民用グレイアウトする
+                  document.getElementById("conf").value = "申込不可";  //府民用レイアウトする
+                  document.getElementById("conf").disabled = true;  //府民用押せなくする    
 
                   function valueChange1(){
                     if (event1.checked) {
@@ -277,8 +292,7 @@
                }
 
 
-              
-           //* イベント終了後
+              //* イベント終了後
              //*var endObj2   = new Date("開催日を指定");  // 開催日を指定 '2021-12-16T16:36:59'
               //*var end2   = endObj2.getTime();
              //* var comment2 = "";
@@ -290,8 +304,7 @@
               //*    document.getElementById("conf").disabled = true;  //締切後押せなくする      
                                //*<button style="background-color:red">締　切</button>
              //* }                 
-            //* -->          
-            
+            //* -->
             </script>            
         </div>
     </body>
