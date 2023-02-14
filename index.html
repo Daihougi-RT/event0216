@@ -244,7 +244,7 @@
               var web1_endtime  = kaisai_day1.getTime();          // 開催日（締切日）を時間に変換
 
               //　ここを変更！！  もしevent1の定員がいっぱいになった時は”-3”を大きな数字に代えて，締め切る！！！
-              var kaijyo1_endtime  =kaisai_day1.getTime("2023-01-30T23:59:59");  // 締切日を3日前にして時間に変換
+              var kaijyo1_endtime  = kaisai_day1.setDate("2023-01-30T23:59:59");  // 締切日を3日前にして時間に変換
               var comment1 = "";
 
               if(web1_endtime < todaytime){// event1開催日にWebも締め切り
